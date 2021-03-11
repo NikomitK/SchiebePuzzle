@@ -2,6 +2,7 @@ package de.NikomitK.SchiebePuzzle;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 
 public class GUI extends JFrame{
 
@@ -13,7 +14,7 @@ public class GUI extends JFrame{
 
     private JPanel panelBedienung, panelFeld;
     private JLabel labelArt, labelGroesse;
-    private JRadioButton radioZahlen, radio2x2, radio3x3, radio4x4;
+    private JRadioButton radioZahlen, radio2x2, radio3x3, radio4x4, radioBilder;
     private JButton buttonNeuesSpiel, buttonSpielBeenden;
 
     public GUI(){
@@ -39,6 +40,7 @@ public class GUI extends JFrame{
         radio2x2 = new JRadioButton("2x2");
         radio3x3 = new JRadioButton("3x3");
         radio4x4 = new JRadioButton("4x4");
+        radioBilder = new JRadioButton("Bilder");
         buttonNeuesSpiel = new JButton("Neues Spiel");
         buttonSpielBeenden = new JButton("Spiel Beenden");
         panelFeld.setBackground(Color.yellow);
@@ -53,12 +55,73 @@ public class GUI extends JFrame{
 
         panelBedienung.add(labelArt);
         panelBedienung.add(radioZahlen);
+        panelBedienung.add(radioBilder);
         panelBedienung.add(labelGroesse);
         panelBedienung.add(radio2x2);
         panelBedienung.add(radio3x3);
         panelBedienung.add(radio4x4);
         panelBedienung.add(buttonNeuesSpiel);
         panelBedienung.add(buttonSpielBeenden);
+
+        radio3x3.setSelected(true);
+        radioZahlen.setSelected(true);
+
+        buttonNeuesSpiel.addActionListener((ActionEvent e) ->{
+            System.out.println("neues spiel geklickt");
+
+            char art = 'z';
+            int groesse = 3;
+
+            if(radioZahlen.isSelected() == true){
+                art = 'z';
+            }
+            if(radioZahlen.isSelected() == true){
+                art = 'b';
+            }
+            if(radio2x2.isSelected() == true){
+                groesse = 2;
+            }
+            else if(radio3x3.isSelected() == true){
+                groesse = 3;
+            }
+            else{
+                groesse = 4;
+            }
+
+            dieSteuerung.neuesSpiel(art, groesse);
+        });
+        radio2x2.addActionListener((ActionEvent e) ->{
+            System.out.println("radio2x2 aktiv");
+            radio2x2.setSelected(true);
+            radio3x3.setSelected(false);
+            radio4x4.setSelected(false);
+        });
+
+        radio3x3.addActionListener((ActionEvent e) ->{
+            System.out.println("radio3x3 aktiv");
+            radio2x2.setSelected(false);
+            radio3x3.setSelected(true);
+            radio4x4.setSelected(false);
+        });
+
+        radio4x4.addActionListener((ActionEvent e) ->{
+            System.out.println("radio4x4 aktiv");
+            radio2x2.setSelected(false);
+            radio3x3.setSelected(false);
+            radio4x4.setSelected(true);
+        });
+
+        radioZahlen.addActionListener((ActionEvent e) ->{
+            System.out.println("radioZahlen aktiv");
+            radioZahlen.setSelected(true);
+            radioBilder.setSelected(false);
+        });
+
+        radioBilder.addActionListener((ActionEvent e) ->{
+            System.out.println("radioBilder aktiv");
+            radioZahlen.setSelected(false);
+            radioBilder.setSelected(true);
+        });
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
@@ -69,7 +132,17 @@ public class GUI extends JFrame{
 
     }
 
-    public void setzeTastenZahlen(int [] zahlenFeld){
+    public void setzeTastenZahlen(int [] pZahlenFeld){
+        System.out.println("setzeTastenZahlen");
+        int arrayGroesse = pZahlenFeld.length;
+        GridLayout gitterLayout = null;
+
+        if(arrayGroesse ==  4) gitterLayout = new GridLayout(0, 2);
+        else if(arrayGroesse == 9) gitterLayout = new GridLayout(0, 3);
+        else gitterLayout = new GridLayout(0, 4);
+
+        panelFeld.setLayout(gitterLayout);
+
 
     }
 
