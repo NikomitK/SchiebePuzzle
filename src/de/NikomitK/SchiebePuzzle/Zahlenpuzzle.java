@@ -30,7 +30,7 @@ public class Zahlenpuzzle extends Schiebepuzzle {
         int groesse = gibGroesse();
 
         aZahlenFeld = new int[groesse * groesse];
-        aUnusedNums = new ArrayList<>();
+        aUnusedNums = new ArrayList<>(); //idk ob das passt, selbstversuch
     }
 
     public void tauscheTastenWerte(int pIdxTaste, int pIdxLeertaste){
