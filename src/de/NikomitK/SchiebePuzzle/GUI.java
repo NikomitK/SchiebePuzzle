@@ -43,7 +43,7 @@ public class GUI extends JFrame{
         radioBilder = new JRadioButton("Bilder");
         buttonNeuesSpiel = new JButton("Neues Spiel");
         buttonSpielBeenden = new JButton("Spiel Beenden");
-        panelFeld.setBackground(Color.yellow);
+        panelFeld.setBackground(Color.DARK_GRAY);
         panelBedienung.setBackground(Color.red);
 
         GridLayout gitterLayout = new GridLayout(0, 1);

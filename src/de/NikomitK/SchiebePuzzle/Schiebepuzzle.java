@@ -5,7 +5,9 @@ public abstract class Schiebepuzzle {
     int aGroesse;
     int aAnzahlKlicks;
     public Schiebepuzzle(int pGroesse){
-
+        System.out.println("Konstruktor schiebepuzzle");
+        aGroesse = pGroesse;
+        aAnzahlKlicks = 0;
     }
 
     protected int gibGroesse(){

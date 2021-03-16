@@ -1,11 +1,16 @@
 package de.NikomitK.SchiebePuzzle;
 
-public class Zahlenpuzzle {
+public class Zahlenpuzzle extends Schiebepuzzle {
     int [] aZahlenFeld;
 
     public Zahlenpuzzle(int pGroesse){
-        //super(pGroesse);
+        super(pGroesse);
 
+    }
+
+    @Override
+    public boolean puzzleGeloest() {
+        return false;
     }
 
     public int [] gibZahlenFeld(){
