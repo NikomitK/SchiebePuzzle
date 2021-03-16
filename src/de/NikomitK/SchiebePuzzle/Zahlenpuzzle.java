@@ -1,9 +1,12 @@
 package de.NikomitK.SchiebePuzzle;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Zahlenpuzzle extends Schiebepuzzle {
 
     private int [] aZahlenFeld;
-
+    private List<Integer> aUnusedNums;
     public Zahlenpuzzle(int pGroesse){
         super(pGroesse);
         erzeugePuzzleFeld();
@@ -25,6 +28,9 @@ public class Zahlenpuzzle extends Schiebepuzzle {
         System.out.println("erzeugePuzzleFeld");
 
         int groesse = gibGroesse();
+
+        aZahlenFeld = new int[groesse * groesse];
+        aUnusedNums = new ArrayList<>();
     }
 
     public void tauscheTastenWerte(int pIdxTaste, int pIdxLeertaste){
