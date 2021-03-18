@@ -143,6 +143,11 @@ public class GUI extends JFrame{
 
         panelFeld.setLayout(gitterLayout);
 
+        Taste tasten [] = new Taste[arrayGroesse];
+        for(int i = 0; i<arrayGroesse; i++){
+            tasten[i] = new Taste(p);
+        }
+
 
     }
 

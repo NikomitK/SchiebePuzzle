@@ -34,20 +34,24 @@ public class Zahlenpuzzle extends Schiebepuzzle {
 
         aZahlenFeld = new int[groesse * groesse];
 
+        // Array Zahlen zuweisen
         for(int i = 0; i < aZahlenFeld.length; i++){
             aZahlenFeld[i] = i;
             System.out.println(aZahlenFeld[i]);
         }
-        // absolut kein plan ob das so passt, erstmal nicht abschreiben
-        for(int i = 0; i<aZahlenFeld.length; i++){
-            int zufallsPosition = r.nextInt(8);
-            int temp = aZahlenFeld[i];
-            aZahlenFeld[i] = aZahlenFeld[zufallsPosition];
-            aZahlenFeld[zufallsPosition] = temp;
+
+        // Array Mischeln
+        for(int j = 0; j<50; j++){
+            for (int i = 0; i < aZahlenFeld.length; i++) {
+                int zufallsPosition = r.nextInt((groesse*groesse)-1);
+                int temp = aZahlenFeld[i];
+                aZahlenFeld[i] = aZahlenFeld[zufallsPosition];
+                aZahlenFeld[zufallsPosition] = temp;
+            }
         }
 
-        System.out.println();
-        for (int i = 0; i < aZahlenFeld.length; i++) System.out.println(aZahlenFeld[i]);
+        System.out.println("Array zufällig");
+        for (int j : aZahlenFeld) System.out.println(j);
 //        eigene methode für zufall
 //        aUnusedNums = new ArrayList<>(); //idk ob das passt, selbstversuch
 //        for(int i = 0; i<groesse*groesse; i++){
