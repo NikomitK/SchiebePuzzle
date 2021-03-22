@@ -144,8 +144,24 @@ public class GUI extends JFrame{
         panelFeld.setLayout(gitterLayout);
 
         Taste tasten [] = new Taste[arrayGroesse];
+        int width = (int) Math.sqrt(arrayGroesse);
         for(int i = 0; i<arrayGroesse; i++){
-            tasten[i] = new Taste(p);
+            int py = 0;
+            int px = i;
+            if(i >= width*3){
+                py = 3;
+                px = i-width*3;
+            }
+            else if(i >= width*2){
+                py = 2;
+                px = i-width*2;
+            }
+            else if(i >= width){
+                py = 1;
+                px = i-width;
+            }
+            tasten[i] = new Taste(px, py);
+            panelFeld.add(tasten[i]);
         }
 
 
