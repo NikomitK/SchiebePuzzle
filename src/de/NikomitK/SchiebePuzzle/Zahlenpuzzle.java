@@ -9,6 +9,7 @@ public class Zahlenpuzzle extends Schiebepuzzle {
     private Random r;
     public static int [] aZahlenFeld;
     private List<Integer> aUnusedNums;
+
     public Zahlenpuzzle(int pGroesse){
         super(pGroesse);
         erzeugePuzzleFeld();
@@ -26,6 +27,12 @@ public class Zahlenpuzzle extends Schiebepuzzle {
         return aZahlenFeld;
     }
 
+    private void aktualisiereTastenZahlen(int pZahlenFeld[]){
+        for(int i=0; i < pZahlenFeld.length; i++){
+
+        }
+    }
+
     private void erzeugePuzzleFeld(){
         r = new Random();
         System.out.println("erzeugePuzzleFeld");
@@ -37,6 +44,8 @@ public class Zahlenpuzzle extends Schiebepuzzle {
         // Array Zahlen zuweisen
         for(int i = 0; i < aZahlenFeld.length; i++){
             aZahlenFeld[i] = i;
+            if(i == 0) aZahlenFeld[i] = -1;
+
             System.out.println(aZahlenFeld[i]);
         }
 
