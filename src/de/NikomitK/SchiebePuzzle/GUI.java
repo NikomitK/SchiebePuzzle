@@ -150,7 +150,7 @@ public class GUI extends JFrame{
             aTastenFeld[i] = new Taste(i, Zahlenpuzzle.aZahlenFeld[i]);
             panelFeld.add(aTastenFeld[i]);
         }
-        //pack();
+        pack();
 
     }
 
