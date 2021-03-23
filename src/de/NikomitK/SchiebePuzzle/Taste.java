@@ -17,7 +17,14 @@ public class Taste extends JButton {
         return x;
     }
 
+    public void setzeX(int px){
+        x = px;
+        setText(x + "/" + y);
+    }
+
     public int gibY(){
         return y;
     }
+
+
 }

@@ -143,7 +143,8 @@ public class GUI extends JFrame{
 
         panelFeld.setLayout(gitterLayout);
 
-        Taste tasten [] = new Taste[arrayGroesse];
+        aTastenFeld = new Taste[arrayGroesse];
+
         int width = (int) Math.sqrt(arrayGroesse);
         for(int i = 0; i<arrayGroesse; i++){
             int py = 0;
@@ -160,9 +161,18 @@ public class GUI extends JFrame{
                 py = 1;
                 px = i-width;
             }
-            tasten[i] = new Taste(px, py);
-            panelFeld.add(tasten[i]);
+            aTastenFeld[i] = new Taste(px, py);
+            panelFeld.add(aTastenFeld[i]);
         }
+        // das von jamie lul
+//        for(int i=0;i<arrayGroesse;i++){
+//            aTastenFeld[i]=new Taste(i,i);
+//            panelFeld.add(aTastenFeld[i]);
+//            aTastenFeld[i].addActionListener((ActionEvent e) ->{
+//
+//            });
+//        }
+//        pack();
 
 
     }
