@@ -7,7 +7,7 @@ import java.util.Random;
 public class Zahlenpuzzle extends Schiebepuzzle {
 
     private Random r;
-    private int [] aZahlenFeld;
+    public static int [] aZahlenFeld;
     private List<Integer> aUnusedNums;
     public Zahlenpuzzle(int pGroesse){
         super(pGroesse);

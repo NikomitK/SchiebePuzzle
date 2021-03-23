@@ -147,32 +147,9 @@ public class GUI extends JFrame{
 
         int width = (int) Math.sqrt(arrayGroesse);
         for(int i = 0; i<arrayGroesse; i++){
-            int py = 0;
-            int px = i;
-            if(i >= width*3){
-                py = 3;
-                px = i-width*3;
-            }
-            else if(i >= width*2){
-                py = 2;
-                px = i-width*2;
-            }
-            else if(i >= width){
-                py = 1;
-                px = i-width;
-            }
-            aTastenFeld[i] = new Taste(px, py);
+            aTastenFeld[i] = new Taste(i, Zahlenpuzzle.aZahlenFeld[i]);
             panelFeld.add(aTastenFeld[i]);
         }
-        // das von jamie lul
-//        for(int i=0;i<arrayGroesse;i++){
-//            aTastenFeld[i]=new Taste(i,i);
-//            panelFeld.add(aTastenFeld[i]);
-//            aTastenFeld[i].addActionListener((ActionEvent e) ->{
-//
-//            });
-//        }
-//        pack();
 
 
     }
