@@ -16,8 +16,16 @@ public class Steuerung {
 
     }
 
-    public void tastenKlick(){
+    public void tastenKlick(int pIdxTaste){
+        int pIdxLeertaste = dasZahlenpuzzle.gibLeerTasteIdx();
+        dieGUI.aktualisiereTastenZahlen(dasZahlenpuzzle.gibZahlenFeld());
+    }
 
+    public boolean nachbarPrüfen(int pIdxTaste, int pIdxLeertaste){
+        int width = dasZahlenpuzzle.aGroesse;
+        if(pIdxLeertaste == pIdxTaste  - width || pIdxLeertaste == pIdxTaste  + width) dasZahlenpuzzle.tauscheTastenWerte(pIdxTaste, pIdxLeertaste);
+        else if((pIdxLeertaste == pIdxTaste - 1 || pIdxLeertaste == pIdxTaste + 1) && pIdxTaste/width == pIdxLeertaste/width) dasZahlenpuzzle.tauscheTastenWerte(pIdxTaste, pIdxLeertaste);
+        else;
     }
 
     public void neuesSpiel(char pTyp, int pGroesse){

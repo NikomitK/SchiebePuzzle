@@ -10,7 +10,7 @@ public class Taste extends JButton {
     public Taste(int px, int py){
         x = px;
         y = py;
-        setText(x + "/" + y);
+        setText(y + "");
     }
 
     public int gibX(){

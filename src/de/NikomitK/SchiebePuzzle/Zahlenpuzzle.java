@@ -8,7 +8,6 @@ public class Zahlenpuzzle extends Schiebepuzzle {
 
     private Random r;
     public static int [] aZahlenFeld;
-    private List<Integer> aUnusedNums;
 
     public Zahlenpuzzle(int pGroesse){
         super(pGroesse);
@@ -25,12 +24,6 @@ public class Zahlenpuzzle extends Schiebepuzzle {
     public int [] gibZahlenFeld(){
 
         return aZahlenFeld;
-    }
-
-    private void aktualisiereTastenZahlen(int pZahlenFeld[]){
-        for(int i=0; i < pZahlenFeld.length; i++){
-
-        }
     }
 
     private void erzeugePuzzleFeld(){
@@ -75,6 +68,19 @@ public class Zahlenpuzzle extends Schiebepuzzle {
     }
 
     public void tauscheTastenWerte(int pIdxTaste, int pIdxLeertaste){
+        int temp = aZahlenFeld[pIdxTaste];
+        aZahlenFeld[pIdxTaste] = aZahlenFeld[pIdxLeertaste];
+        aZahlenFeld[pIdxLeertaste] = temp;
+    }
 
+    public int gibLeerTasteIdx() {
+        System.out.println("gibLeerTasteIdx");
+        int pos = -1;
+        for (int i = 0; i < aZahlenFeld.length; i++) {
+            if (aZahlenFeld[i] == -1) {
+                pos = i;
+            }
+        }
+        return pos;
     }
 }

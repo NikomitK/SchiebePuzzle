@@ -149,9 +149,20 @@ public class GUI extends JFrame{
         for(int i = 0; i<arrayGroesse; i++){
             aTastenFeld[i] = new Taste(i, Zahlenpuzzle.aZahlenFeld[i]);
             panelFeld.add(aTastenFeld[i]);
+            aTastenFeld[i].addActionListener((ActionEvent e) ->{
+                int idx = ((Taste) e.getSource()).gibX();
+                dieSteuerung.tastenKlick(idx);
+            });
+            aTastenFeld[i].setBackground(Color.lightGray);
         }
-        //pack();
+        pack();
 
+    }
+
+    public void aktualisiereTastenZahlen(int pZahlenFeld[]) {
+        for (int i = 0; i <= pZahlenFeld.length - 1; i++) {
+            aTastenFeld[i].setText(""+pZahlenFeld[i]);
+        }
     }
 
     public void melde(String pTextNr){
