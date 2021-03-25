@@ -18,6 +18,9 @@ public class Zahlenpuzzle extends Schiebepuzzle {
 
     @Override
     public boolean puzzleGeloest() {
+        for(int i = 0; i < aZahlenFeld.length -1; i++){
+            if(aZahlenFeld[i] != i+1) return false;
+        }
         return true;
     }
 
